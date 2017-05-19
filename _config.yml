@@ -6,7 +6,7 @@ kramdown:
     disable: true
 php: php?start_inline=1
 collections:
-  projects:
+  docs:
     output: true
 compress_html:
   clippings: []

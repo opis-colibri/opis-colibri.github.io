@@ -36,7 +36,8 @@ cd website.dev
 php -S localhost:8080 -t public router.php
 ```
 
-You can visit the newly installed web application by navigating to [http://localhost:8080]
+You can now finish the installation process by visiting the newly created web 
+application at [http://localhost:8080]
 
 [Node.js]: https://nodejs.org
 {:rel="nofollow" target="_blank"}

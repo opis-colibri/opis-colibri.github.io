@@ -3,18 +3,14 @@
         {
             "title": "Getting started",
             "pages": [
-                {"title": "Introduction", "url": "/docs/2.x/index.html"},
-                {"title": "Core concepts", "url": "/docs/2.x/concepts.html"},
-                {"title": "Installation", "url": "/docs/2.x/installation.html"}
+                {"title": "Installation", "url": "/docs/2.x/index.html", "id": "index"},
+                {"title": "Core concepts", "url": "/docs/2.x/core-concepts.html", "id": "core-concepts"}
             ]
         },
         {
-            "title": "The basics",
+            "title": "Tutorials",
             "pages": [
-                {"title": "Modules", "url": "/docs/2.x/modules.html"},
-                {"title": "Collectors", "url": "/docs/2.x/collectors.html"},
-                {"title": "Installers", "url": "/docs/2.x/installers.html"},
-                {"title": "Functions", "url": "/docs/2.x/functions.html"}
+                {"title": "Creating your first module", "url": "/docs/2.x/creating-your-first-module.html", "id": "create-module"}
             ]
         }
     ]

@@ -15,6 +15,15 @@ header{
     position: static;
 }
 
+h1, .h1 {
+    font-size: 45px;
+}
+h2, .h2{
+    font-size: 38px;
+}
+h3, h3{
+    font-size: 30px;
+}
 .highlight pre{
     background-color: #F8F8F8;
     border: 1px solid #DDDDDD;

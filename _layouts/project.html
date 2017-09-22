@@ -45,17 +45,12 @@ custom:
                         <span class="fa fa-home"></span> Home
                     </a>
                 </li>
-                <li class="active">
-                    <a href="/docs">
-                        <span class="fa fa-book"></span> Documentation
-                    </a>
-                </li>
+                {% include documentation.html menu=menu url=page.url %}
                 <li>
                     <a href="https://github.com/opis/colibri" title="Github page">
                         <span class="fa fa-github fa-lg"></span> GitHub
                     </a>
                 </li>
-                {% include documentation.html menu=menu url=page.url %}
             </ul>
         </nav>
     </div>

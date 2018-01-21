@@ -1,16 +1,22 @@
 ---
 layout: project
 version: 2.x
-title: Core concepts
+title: Key concepts
 ---
+# Key concepts
 
-# Core concepts
-
-1. [Modules](#modules)
-2. [Assets](#assets)
+1. [Applications](#applications)
+2. [Modules](#modules)
 3. [Collectors](#collectors)
 4. [Installers](#installers)
-5. [Applications](#applications)
+5. [Assets](#assets)
+
+### Applications
+
+An application is a PHP package of [type][1] `project`, installable via Composer's
+`create-project` [command][2], that stands as a skeleton for the **Opis Colibri** framework.
+Even though **Opis Colibri** does not impose a predefined folder structure or naming convention, 
+the application skeleton must provide a some folders that are required by the framework.
 
 ### Modules
 
@@ -20,8 +26,8 @@ application is provided with the help of a module and they can encapsulate not o
 code, but also web assets.
 
 Each module must contain a standard `composer.json` file that provides information about the package.
-The [type] property must be defined as `opis-colibri-module` and you can provide supplementary 
-information by adding a `module` entry under the [extra] property.
+The [type][1] property must be defined as `opis-colibri-module` and you can provide supplementary 
+information by adding a `module` entry under the [extra][3] property.
 
 ```json
 {
@@ -149,11 +155,11 @@ The `installer` property has the following entries:
 - **file**: the path(relative to the `composer.json` file) where the installer's class was declared
 
 
-### Applications
 
-An application is a package of [type] `project`.
+[1]: https://getcomposer.org/doc/04-schema.md#type
+{:rel="nofollow" target="_blank"}
+[2]: https://getcomposer.org/doc/03-cli.md#create-project
+{:rel="nofollow" target="_blank"}
+[3]: https://getcomposer.org/doc/04-schema.md#extra
+{:rel="nofollow" target="_blank"}
 
-[type]: https://getcomposer.org/doc/04-schema.md#type
-{:rel="nofollow" target="_blank"}
-[extra]: https://getcomposer.org/doc/04-schema.md#extra
-{:rel="nofollow" target="_blank"}

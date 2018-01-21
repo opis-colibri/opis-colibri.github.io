@@ -1,4 +1,4 @@
-host: homestead.app
+host: 0.0.0.0
 kramdown:
   input: GFM
   hard_wrap: false

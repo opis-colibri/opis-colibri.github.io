@@ -10,11 +10,11 @@ title: Installation
 
 ### Prerequisites
 
-Before trying to install **Opis Colibri** make sure that you have [Node.js], [npm] and [Bower] installed.
-Also, having [Composer] installed is a must. 
+Before installing **Opis Colibri** make sure that you have [Node.js] and [Yarn] installed.
+Also, you must make sure that you have [Composer] installed. 
 
-**Opis Colibri** utilizes [Composer] and [Bower] to manage its dependencies and it is mandatory to have both 
-[Composer] and [Bower] globally available.
+**Opis Colibri** utilizes [Composer] and [Yarn] to manage its dependencies and it is mandatory that both 
+[Composer] and [Yarn] are globally available.
 
 ### Installation
 
@@ -41,9 +41,7 @@ application at [http://localhost:8080]
 
 [Node.js]: https://nodejs.org
 {:rel="nofollow" target="_blank"}
-[npm]: https://www.npmjs.com/
-{:rel="nofollow" target="_blank"}
-[Bower]: http://bower.io
+[Yarn]: https://yarnpkg.com
 {:rel="nofollow" target="_blank"}
 [Composer]: http://getcomposer.org
 {:rel="nofollow" target="_blank"}

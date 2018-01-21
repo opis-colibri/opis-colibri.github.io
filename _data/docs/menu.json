@@ -4,7 +4,7 @@
             "title": "Getting started",
             "pages": [
                 {"title": "Installation", "url": "/docs/2.x/index.html"},
-                {"title": "Core concepts", "url": "/docs/2.x/core-concepts.html"}
+                {"title": "Key concepts", "url": "/docs/2.x/key-concepts.html"}
             ]
         },
         {

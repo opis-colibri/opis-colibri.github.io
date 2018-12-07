@@ -52,6 +52,15 @@ html, body {
     color: #000;
 }
 
+code:not([class]) {
+    background-color: #f0f0f0;
+    padding: 3px 5px;
+    border-radius: 2px;
+    color: #7542eb;
+    white-space: nowrap;
+    font-size: 0.8em;
+}
+
 /* Hidden */
 @media (max-width: 575px) {
     .hidden-xs {

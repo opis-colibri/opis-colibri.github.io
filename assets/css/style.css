@@ -78,16 +78,17 @@ code:not([class]) {
     font-weight: 400;
 }
 
-ul.page-menu, ul.page-menu ul {
+.main-content h1 + ul,
+.main-content h1 + ul ul {
     list-style: none;
     padding: 0;
 }
 
-ul.page-menu ul {
+.main-content h1 + ul ul {
     padding-left: 2rem;
 }
 
-ul.page-menu li:before {
+.main-content h1 + ul li:before {
     content: "#";
     display: inline-block;
     color: var(--gray);

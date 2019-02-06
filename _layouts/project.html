@@ -40,45 +40,49 @@ layout: default
 {% endif %}
 <header{% if project.classes.header %}class="{{project.classes.header}}"{% endif %}>
     <nav class="navbar navbar-expand-lg {{project.classes.navbar | default: 'navbar-dark bg-primary'}}">
-        <a class="navbar-brand" href="{{project.brand.url}}" title="{{project.brand.title}}">
-            <img src="{{project.brand.logo}}" width="30" height="30">
-            {{project.brand.title}}
-        </a>
-        <button class="navbar-toggler" type="button"
-                data-toggle="collapse"
-                data-target="#navbarLight"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="{{project.container.nav | default: 'container-fluid'}}">
+            <a class="navbar-brand" href="{{project.brand.url}}" title="{{project.brand.title}}">
+                <img src="{{project.brand.logo}}" width="30" height="30">
+                {{project.brand.title}}
+            </a>
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarLight"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarLight">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{project.url}}" title="{{project.title}}">
-                        <i class="fas fa-home"></i> Home
-                    </a>
-                </li>
-                {% include versions.html versions=project.versions %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{project.github}}" title="GitHub page">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </li>
-                {% include documentation.html menu=menu prefix=project.url url=page.url chapters=project.chapters %}
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarLight">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{project.url}}" title="{{project.title}}">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    {% include versions.html versions=project.versions %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{project.github}}" title="GitHub page">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </li>
+                    {% include documentation.html menu=menu prefix=project.url url=page.url chapters=project.chapters %}
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
 
 <main{% if project.classes.main %} class="{{ project.classes.main }}"{% endif %}>
-    <div class="container">
+    <div class="{{project.container.main | default: 'container'}}">
         <div class="row">
             <div class="col-md-4 hidden-xs hidden-sm">
-                {% include menu.html menu=menu prefix=project.url url=page.url chapters=project.chapters %}
+                <div class="menu-content">
+                    {% include menu.html menu=menu prefix=project.url url=page.url chapters=project.chapters %}
+                </div>
             </div>
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-8 col-sm-12 main-content">
                 {{ content }}
                 {% include pager.html menu=menu prefix=project.url url=page.url %}
                 {% include scroll_to_top.html %}

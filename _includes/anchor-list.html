@@ -1,0 +1,12 @@
+<ul{% if include.id%} id="{{include.id}}"{% endif %}>
+{% for id, entry in include.items %}
+    <li>
+    {% if entry.title %}
+        <a href="{{id}}">{{entry.title}}</a>
+        {% include anchor-list.html items=entry.items %}
+    {% else %}
+        <a href="{{id}}">{{entry}}</a>
+    {% endif %}
+    </li>
+{% endfor %}
+</ul>

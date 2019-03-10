@@ -50,9 +50,9 @@ layout: default
     </div>
 
     <div class="nav-menu">
-        {% if project.nav %}}
+        {% if project.nav %}
         {% for link in project.nav %}
-        <a href="{{link[0]}}">{{link[1]}}</a>
+        <a href="{{ link[1] }}">{{ link[0] }}</a>
         {% endfor %}
         {% endif %}
     </div>
@@ -95,7 +95,11 @@ layout: default
                     {% include title.html menu=menu url=page.url %}
                 </div>
                 <div class="header-actions">
-                    <a href="#" class="btn btn-light btn-git"><i class="fab fa-github fa-lg"></i> Edit on GitHub</a>
+                    <a href="{{project.github}}/tree/gh-pages/{{page.path}}"
+                       target="_blank"
+                       class="btn btn-light btn-git">
+                        <i class="fab fa-github fa-lg"></i> Edit on GitHub
+                    </a>
                     {% include page-items.html menu=menu url=page.url dropdown="true" %}
                 </div>
             </div>

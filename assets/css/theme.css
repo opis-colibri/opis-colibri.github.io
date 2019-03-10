@@ -4,6 +4,7 @@
   --primary: #2d88ff;
   --secondary: #e9edf1;
   --light: #f3f6f9;
+  --link: #2060b3;
   --white: #fff;
   --info: #21a0ea;
   --success: #00c1a8;
@@ -84,34 +85,24 @@ h6 {
   font-size: var(--h6);
 }
 
-h1 + h2 {
-  font-size: var(--h3);
-  margin-top: -14px;
-  font-weight: 400;
+a {
+  color: var(--link);
+  text-decoration: none;
 }
 
-h2 + h3 {
-  font-size: var(--h4);
-  margin-top: -12px;
-}
-
-h3 + h4 {
-  font-size: var(--h5);
-  margin-top: -10px;
-}
-
-h4 + h5 {
-  font-size: var(--h6);
-  margin-top: -8px;
+a:hover {
+  text-decoration: underline;
 }
 
 code:not([class]) {
   display: inline-block;
-  margin: 0 1px;
+  margin: 1px;
   color: var(--dark);
   background: var(--light);
   padding: 3px 6px;
   font-size: 85%;
+  font-weight: 500;
+  font-family: "Roboto", Helvetica, sans-serif;
   border-radius: 3px;
 }
 
@@ -495,6 +486,18 @@ pre {
   outline: none;
 }
 
+.search-bar input::-webkit-input-placeholder {
+  color: var(--text-semi);
+}
+
+.search-bar input:-ms-input-placeholder {
+  color: var(--text-semi);
+}
+
+.search-bar input::-ms-input-placeholder {
+  color: var(--text-semi);
+}
+
 .search-bar input::placeholder {
   color: var(--text-semi);
 }
@@ -553,7 +556,7 @@ pre {
 }
 
 .region-right .drawer ul {
-  padding-left: 12px;
+  padding-left: 24px;
 }
 
 .region-right .drawer li {
@@ -643,6 +646,7 @@ pre {
     padding-right: var(--content-padding-left);
   }
   .region-left .drawer {
+    position: -webkit-sticky;
     position: sticky;
     top: var(--navbar-height);
     height: calc(100vh - var(--navbar-height));
@@ -701,6 +705,15 @@ pre {
     color: white;
     outline: none;
   }
+  .navbar .search-bar input::-webkit-input-placeholder {
+    color: white;
+  }
+  .navbar .search-bar input:-ms-input-placeholder {
+    color: white;
+  }
+  .navbar .search-bar input::-ms-input-placeholder {
+    color: white;
+  }
   .navbar .search-bar input::placeholder {
     color: white;
   }
@@ -716,6 +729,7 @@ pre {
     display: block;
   }
   .region-right .drawer {
+    position: -webkit-sticky;
     position: sticky;
     right: 0;
     height: 100vh;

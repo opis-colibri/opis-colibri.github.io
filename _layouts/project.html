@@ -51,9 +51,7 @@ layout: default
 
     <div class="nav-menu">
         {% if project.nav %}
-        {% for link in project.nav %}
-        <a href="{{ link[1] }}">{{ link[0] }}</a>
-        {% endfor %}
+        {% include nav-links.html links=project.nav %}
         {% endif %}
     </div>
 

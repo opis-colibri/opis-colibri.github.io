@@ -3,7 +3,7 @@
 <div class="chapter">{{ entry.chapter }}</div>
 {% endif %}
 <ul>
-    {% for pages in entry.pages %}
+    {% for page in entry.pages %}
     <li>
         {% if include.url == page.url %}
         <a href="{{include.prefix}}{{page.url}}" title="{{page.description}}" class="active">{{page.title}}</a>

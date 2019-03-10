@@ -46,16 +46,16 @@ layout: default
     </div>
     <!-- ================================================= -->
     <div class="region-left">
-        <a href="{{project.brand.url}}" class="logo"><img src="{{ project.barnd.logo }}" alt="Project logo">{{project.brand.title}}</a>
+        <a href="{{project.brand.url}}" class="logo"><img src="{{ project.brand.logo }}" alt="Project logo">{{project.brand.title}}</a>
     </div>
 
-    {% if project.nav %}}
     <div class="nav-menu">
-        {% for title,link in project.nav %}
-        <a href="{{link}}">{{title}}</a>
+        {% if project.nav %}}
+        {% for link in project.nav %}
+        <a href="{{link[0]}}">{{link[1]}}</a>
         {% endfor %}
+        {% endif %}
     </div>
-    {% endif %}
 
     <div class="region-right">
         <div class="search-bar">
@@ -92,40 +92,19 @@ layout: default
         <div class="content">
             <div class="content-header">
                 <div class="header-title">
-                    <h1>{{page.title}}</h1>
-                    <p class="info">{{page.description}}</p>
+                    {% include title.html menu=menu url=page.url %}
                 </div>
                 <div class="header-actions">
                     <a href="#" class="btn btn-light btn-git"><i class="fab fa-github fa-lg"></i> Edit on GitHub</a>
-                    {% include page-items.html menu=menu dropdown="true" %}
+                    {% include page-items.html menu=menu url=page.url dropdown="true" %}
                 </div>
             </div>
 
-            {{ page.content }}
+            {{ content }}
 
             <div class="content-footer">
-
-                <a href="#" class="goto previous-page">
-                    <div>
-                        <i class="fas fa-arrow-left"></i>
-                    </div>
-                    <div>
-                        <p>Previous - Opis Json Schema</p>
-                        <h5>About</h5>
-                    </div>
-                </a>
-
-                <a href="#" class="goto next-page">
-                    <div>
-                        <p>Next - The Basics</p>
-                        <h5>Structure</h5>
-                    </div>
-                    <div>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </a>
+                {% include pager.html menu=menu url=page.url prefix=project.url %}
             </div>
-
         </div>
     </div>
 
@@ -133,7 +112,7 @@ layout: default
     <div class="region-right">
         <div class="drawer">
             <div class="drawer-content">
-                {% include page-items.html menu=menu id="on-this-page-section" %}
+                {% include page-items.html menu=menu url=page.url id="on-this-page-section" %}
             </div>
         </div>
     </div>

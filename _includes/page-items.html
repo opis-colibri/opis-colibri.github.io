@@ -1,27 +1,27 @@
-{% assign page = false %}
 {% assign done = false %}
+{% assign entry = false %}
 
-{% for entry in include.menu %}
-    {% for p in entry.pages %}
+{% for chapter in include.menu %}
+    {% for page in chapter.pages %}
         {% unless done != false %}
-            {% if include.url == p.url %}
-                {% assign page = p %}
-                {% assign done = true %}
-            {% endif %}
+        {% if include.url == page.url %}
+            {% assign entry = page %}
+            {% assign done = true %}
+        {% endif %}
         {% endunless %}
     {% endfor %}
 {% endfor %}
 
-{% if page.items %}
-{% if include.dropdown %}
-<a href="#" class="btn btn-light btn-sm btn-toc" onclick="toggleDropdown('dropdown-toc')"><i
-        class="fas fa-list-ul"></i></a>
-<div class="dropdown-toc shadow" id="dropdown-toc">
+{% if entry and entry.items %}
+    {% if include.dropdown %}
+    <a href="#" class="btn btn-light btn-sm btn-toc" onclick="toggleDropdown('dropdown-toc')"><i
+            class="fas fa-list-ul"></i></a>
+    <div class="dropdown-toc shadow" id="dropdown-toc">
+        <div class="chapter">On this page</div>
+        {% include anchor-list.html items=entry.items %}
+    </div>
+    {% else %}
     <div class="chapter">On this page</div>
-    {% include anchor-list.html items=page.items %}
-</div>
-{% else %}
-<div class="chapter">On this page</div>
-{% include content-list.html items=page.items id=include.id %}
-{% endif %}
+    {% include anchor-list.html items=entry.items id=include.id %}
+    {% endif %}
 {% endif %}

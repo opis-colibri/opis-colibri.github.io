@@ -19,20 +19,25 @@
         {% endunless%}
     {% endfor %}
 {% endfor %}
-<div class="d-flex mt-3 mb-3">
-    {% if prev %}
-    <a href="{{include.prefix}}{{prev.url}}"
-       title="{{prev.title}}"
-       class="btn btn-primary">
-        &larr; Back
-    </a>
-    {% endif %}
-    <span style="flex: 1"></span>
-    {% if next %}
-    <a href="{{include.prefix}}{{next.url}}"
-       title="{{next.title}}"
-       class="btn btn-primary">
-        Next &rarr;
-    </a>
-    {% endif %}
-</div>
+{% if prev %}
+<a href="{{include.prefix}}{{prev.url}}" class="goto previous-page">
+    <div>
+        <i class="fas fa-arrow-left"></i>
+    </div>
+    <div>
+        <p>{{prev.description}} - Previous</p>
+        <h5>{{prev.title}}</h5>
+    </div>
+</a>
+{% endif %}
+{% if next%}
+<a href="#" class="goto next-page">
+    <div>
+        <p>Next - {{next.description}}</p>
+        <h5>{{next.title}}</h5>
+    </div>
+    <div>
+        <i class="fas fa-arrow-right"></i>
+    </div>
+</a>
+{% endif %}

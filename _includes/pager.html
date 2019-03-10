@@ -31,7 +31,7 @@
 </a>
 {% endif %}
 {% if next%}
-<a href="#" class="goto next-page">
+<a href="{{include.prefix}}{{next.url}}" class="goto next-page">
     <div>
         <p>Next - {{next.description}}</p>
         <h5>{{next.title}}</h5>

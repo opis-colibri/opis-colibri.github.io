@@ -58,12 +58,12 @@ layout: default
     <div class="region-right">
         <div class="search-bar">
             <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Search..." onclick="toggleShow('search-drawer')">
         </div>
     </div>
 
     <!-- This button will appear on mobile and tablet portrait only -->
-    <div class="search-btn">
+    <div class="search-btn" onclick="toggleShow('search-drawer')">
         <i class="fas fa-search"></i>
     </div>
     <!-- ================================================= -->
@@ -116,6 +116,22 @@ layout: default
             <div class="drawer-content">
                 {% include page-items.html menu=menu url=page.url id="on-this-page-section" %}
             </div>
+        </div>
+    </div>
+
+    <div class="search" id="search-drawer">
+        <div class="search-drawer">
+            <div class="drawer-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <div id="algolia-search-box"></div>
+                </div>
+                <div class="close-drawer" onclick="toggleShow('search-drawer')">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <div class="drawer-content" id="algolia-hits"></div>
         </div>
     </div>
 </div>

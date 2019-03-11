@@ -16,6 +16,10 @@ function toggleDropdown(id) {
     document.getElementById(id).classList.toggle("show");
 }
 
+function focusOn(id) {
+    document.getElementById(id).focus();
+}
+
 function scrollSpy(selector) {
     let element = document.querySelector(selector);
     if (!element) {
@@ -79,3 +83,37 @@ window.addEventListener('load', function () {
         // append a hash tag
     })
 });
+
+const searchClient = algoliasearch('NMQ2IFNV6E', 'f8653941bd9a6d355cc22fb710a143fe');
+
+const search = instantsearch({
+    indexName: 'opiscolibri',
+    searchClient,
+});
+
+search.addWidget(
+    instantsearch.widgets.searchBox({
+        container: '#algolia-search-box',
+        placeholder: 'Search',
+        searchAsYouType: true,
+        showReset: false,
+        showSubmit: false,
+        showLoadingIndicator: false,
+    })
+);
+
+search.addWidget(
+    instantsearch.widgets.hits({
+        container: '#algolia-hits',
+        templates: {
+            item: `
+      <h2>
+        {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
+      </h2>
+      <p>{{ description }}</p>
+    `,
+        },
+    })
+);
+
+//search.start();

@@ -98,7 +98,7 @@ layout: default
                        class="btn btn-light btn-git">
                         <i class="fab fa-github fa-lg"></i> Edit on GitHub
                     </a>
-                    {% include page-items.html menu=menu url=page.url dropdown="true" %}
+                    {% include page-items.html menu=menu url=page.url project=project dropdown="true" %}
                 </div>
             </div>
 
@@ -114,7 +114,7 @@ layout: default
     <div class="region-right">
         <div class="drawer">
             <div class="drawer-content">
-                {% include page-items.html menu=menu url=page.url id="on-this-page-section" %}
+                {% include page-items.html menu=menu url=page.url project=project id="on-this-page-section" %}
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<ul{% if include.id%} id="{{include.id}}"{% endif %}>
+<ul class="page-content-list"{% if include.id%} id="{{include.id}}"{% endif %}>
 {% for entry in include.items %}
     <li>
     {% if entry[1].title %}

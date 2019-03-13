@@ -5,8 +5,8 @@
     </div>
     <ul>
         {% for version in include.versions.list %}
-        {% if forloop.index != include.versions.current %}
-        <li><a href="{{include.prefix}}{{version.path}}">{{version.name}}</a></li>
+        {% if forloop.index0 != include.versions.current %}
+        <li><a href="{{include.prefix}}{{version.path}}">Version {{version.name}}</a></li>
         {% endif %}
         {% endfor %}
     </ul>

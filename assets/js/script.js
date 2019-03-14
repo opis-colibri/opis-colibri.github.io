@@ -118,7 +118,7 @@ search.addWidget(
     })
 );
 
-let urlPrefix = '/framework';//document.getElementById('search').getAttribute('data-prefix');
+let urlPrefix = document.getElementById('search').getAttribute('data-prefix');
 
 search.addWidget(
     instantsearch.widgets.hits({

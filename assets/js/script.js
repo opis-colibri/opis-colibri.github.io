@@ -84,11 +84,27 @@ window.addEventListener('load', function () {
     })
 });
 
+function algoliaNavigate(prefix, url, anchor) {
+    url = prefix + url;
+    if (anchor) {
+        url += '#' + anchor;
+    }
+    toggleShow('search-drawer');
+    window.location = url;
+}
+
 const searchClient = algoliasearch('NMQ2IFNV6E', 'f8653941bd9a6d355cc22fb710a143fe');
 
 const search = instantsearch({
     indexName: 'opiscolibri',
     searchClient,
+    searchFunction: function(helper) {
+        if (helper.state.query === '') {
+            return;
+        }
+
+        helper.search();
+    }
 });
 
 search.addWidget(
@@ -98,22 +114,26 @@ search.addWidget(
         searchAsYouType: true,
         showReset: false,
         showSubmit: false,
-        showLoadingIndicator: false,
+        showLoadingIndicator: false
     })
 );
+
+let urlPrefix = '/framework';//document.getElementById('search').getAttribute('data-prefix');
 
 search.addWidget(
     instantsearch.widgets.hits({
         container: '#algolia-hits',
         templates: {
             item: `
-      <h2>
-        {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
-      </h2>
-      <p>{{ description }}</p>
+        <div onclick="algoliaNavigate('${urlPrefix}','{{url}}','{{anchor}}')">
+            <h5>
+            {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
+            </h5>
+            <p>{{#helpers.highlight}}{ "attribute": "content" }{{/helpers.highlight}}</p>
+        </div>
     `,
         },
     })
 );
 
-//search.start();
+search.start();

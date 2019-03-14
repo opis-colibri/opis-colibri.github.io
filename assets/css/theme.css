@@ -149,6 +149,12 @@ pre {
   transition: none;
 }
 
+.search .drawer-content {
+  max-width: 360px;
+  overflow-y: auto;
+  max-height: calc(100vh - 132px);
+}
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -516,6 +522,24 @@ pre {
 .dropdown-versions li a:hover {
   background-color: var(--primary);
   color: white;
+}
+
+.ais-Hits-list {
+  padding: 0;
+  list-style: none;
+  word-break: break-all;
+}
+
+.ais-Hits-item {
+  border-bottom: 1px solid var(--gray);
+}
+
+.ais-Hits-item:last-child {
+  border-bottom: none;
+}
+
+.ais-Hits-item:hover {
+  cursor: pointer;
 }
 
 .grid-layout {

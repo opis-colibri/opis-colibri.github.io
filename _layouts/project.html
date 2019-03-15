@@ -119,7 +119,9 @@ layout: default
         </div>
     </div>
 
-    <div class="search" id="search-drawer" data-prefix="{{project.url}}">
+    <div class="search" id="search-drawer" data-index="{{project.search.index}}"
+         data-api-key="{{project.search.api_key}}"
+         data-app-id="{{project.search.app_id}}" data-prefix="{{project.url}}">
         <div class="search-drawer">
             <div class="drawer-header">
                 <div class="search-bar">

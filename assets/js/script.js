@@ -93,10 +93,14 @@ function algoliaNavigate(prefix, url, anchor) {
     window.location = url;
 }
 
-const searchClient = algoliasearch('NMQ2IFNV6E', 'f8653941bd9a6d355cc22fb710a143fe');
+const searchElement = document.getElementById('search-drawer');
+const searchClient = algoliasearch(searchElement.getAttribute('data-app-id'),
+    searchElement.getAttribute('data-api-key'));
+
+const urlPrefix = searchElement.getAttribute('data-prefix');
 
 const search = instantsearch({
-    indexName: 'opiscolibri',
+    indexName: searchElement.getAttribute('data-index'),
     searchClient,
     searchFunction: function(helper) {
         if (helper.state.query === '') {
@@ -118,7 +122,6 @@ search.addWidget(
     })
 );
 
-let urlPrefix = document.getElementById('search').getAttribute('data-prefix');
 
 search.addWidget(
     instantsearch.widgets.hits({

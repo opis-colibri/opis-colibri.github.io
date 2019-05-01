@@ -1,0 +1,3 @@
+<input id="tab-{{include.id}}-{{include.name}}" type="radio" name="tabs-{{include.id}}"{% if include.checked %} checked{% endif %}>
+<label for="tab-{{include.id}}-{{include.name}}">{{include.title}}</label>
+<div class="tab-content">{{include.content | markdownify}}</div>

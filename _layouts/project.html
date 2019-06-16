@@ -77,6 +77,11 @@ layout: default
                 <div class="close-drawer" onclick="toggleShow('region-left')">
                     <i class="fas fa-arrow-left"></i>
                 </div>
+                <div class="nav-menu">
+                    {% if project.nav %}
+                    {% include nav-links.html links=project.nav %}
+                    {% endif %}
+                </div>
             </div>
             <div class="drawer-content">
                 {% include menu.html menu=menu prefix=project.url url=page.url %}

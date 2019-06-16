@@ -76,8 +76,37 @@ function scrollSpy(selector) {
     document.addEventListener('scroll', callback);
 }
 
+function scrollNavbar(selector, className) {
+    let element = document.querySelector(selector);
+
+    if (!element) {
+        return;
+    }
+
+    let height = parseFloat(window.getComputedStyle(element).height);
+    let prevScrollPosition = window.scrollY;
+
+    let callback = function (event) {
+        let scrollPosition = window.scrollY;
+        if (prevScrollPosition > scrollPosition) {
+            if (element.classList.contains(className)) {
+                element.classList.remove(className);
+            }
+        } else {
+            if (scrollPosition >= height && !element.classList.contains(className)) {
+                element.classList.add(className);
+            }
+        }
+
+        prevScrollPosition = scrollPosition;
+    };
+
+    window.addEventListener('scroll', callback);
+}
+
 window.addEventListener('load', function () {
     scrollSpy('#on-this-page-section');
+    scrollNavbar('.navbar', 'scrolled-down');
 
     document.querySelectorAll('h2[id],h3[id],h4[id],h5[id],h6[id]').forEach(function (element) {
         // append a hash tag

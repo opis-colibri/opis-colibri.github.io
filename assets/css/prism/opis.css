@@ -9,7 +9,7 @@ pre[class*="language-"] {
     color: #333;
     background: none;
     text-shadow: 0 1px white;
-    font-family: 'Ubuntu Mono', monospace;
+    font-family: 'Roboto Mono', 'Ubuntu Mono', Consolas, monospace;
     font-size: 14px;
     text-align: left;
     white-space: pre;

@@ -25,11 +25,7 @@
   --h6: 14px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -44,6 +40,10 @@ body {
   font-family: "Roboto", Helvetica, sans-serif;
   color: var(--dark);
   line-height: 1.65;
+}
+
+body, ul, li, p {
+  margin: 0;
 }
 
 p {
@@ -544,7 +544,17 @@ pre {
   height: var(--navbar-height);
   background-color: var(--primary);
   color: white;
-  z-index: 1;
+  z-index: 12;
+  top: 0;
+  transition: top ease-in .25s;
+}
+
+.navbar.scrolled-down {
+  top: calc(-1 * var(--navbar-height));
+}
+
+.navbar.scrolled-down .drawer {
+  top: 0;
 }
 
 .navbar.grid-layout {
@@ -621,6 +631,21 @@ pre {
   padding: 0 32px;
   border-bottom: 1px solid rgba(191, 204, 223, 0.568);
   margin-bottom: 32px;
+}
+
+.drawer-header .close-drawer {
+  width: 32px;
+  margin-left: -24px;
+  text-align: center;
+}
+
+.drawer-header .nav-menu {
+  padding-left: 8px;
+}
+
+.drawer-header .nav-menu a {
+  font-size: 13px;
+  margin-right: 10px;
 }
 
 .drawer-content {
@@ -734,10 +759,6 @@ pre {
   .grid-layout {
     grid-template-columns: 1fr minmax(0, 750px) 1fr;
   }
-  .navbar {
-    top: 0;
-    z-index: 12;
-  }
   .navbar.grid-layout {
     grid-template-columns: 1fr minmax(0, 750px) 1fr;
   }
@@ -782,6 +803,10 @@ pre {
     padding-right: 0;
     border-right: 1px solid var(--secondary);
   }
+  .scrolled-down + .main .region-left .drawer {
+    top: 0;
+    height: 100vh;
+  }
   .content {
     padding-left: var(--content-padding-left);
   }
@@ -801,16 +826,9 @@ pre {
   .dropdown-toc {
     display: none;
   }
-  .main {
-    padding-top: 0;
-  }
   .grid-layout,
   .navbar.grid-layout {
     grid-template-columns: 1fr minmax(0, 750px) 1fr;
-  }
-  .navbar {
-    position: relative;
-    z-index: 11;
   }
   .navbar .region-left {
     justify-content: flex-end;
@@ -856,8 +874,7 @@ pre {
     justify-content: flex-end;
   }
   .region-left .drawer {
-    top: 0;
-    height: 100vh;
+    height: calc(100vh - var(--navbar-height));
   }
   .region-right {
     display: block;
@@ -865,13 +882,18 @@ pre {
   .region-right .drawer {
     position: -webkit-sticky;
     position: sticky;
+    top: var(--navbar-height);
     right: 0;
-    height: 100vh;
+    height: calc(100vh - var(--navbar-height));
   }
   .region-right .drawer-header {
     display: none;
   }
   .region-right .drawer-content {
     margin-top: 32px;
+  }
+  .scrolled-down + .main .drawer {
+    top: 0;
+    height: 100vh;
   }
 }

@@ -5,6 +5,7 @@
   --secondary: #e9edf1;
   --light: #f3f6f9;
   --link: #2060b3;
+  --link-content: var(--primary);
   --white: #fff;
   --info: #21a0ea;
   --success: #00c1a8;
@@ -25,8 +26,8 @@
 }
 
 * {
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
 }
 
 *::before,
@@ -174,6 +175,10 @@ pre {
   color: var(--gray);
 }
 
+.search-bar input::-moz-placeholder {
+  color: var(--gray);
+}
+
 .search-bar input:-ms-input-placeholder {
   color: var(--gray);
 }
@@ -187,6 +192,10 @@ pre {
 }
 
 .search-bar input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.search-bar input:focus::-moz-placeholder {
   color: transparent;
 }
 
@@ -352,7 +361,7 @@ pre {
   text-decoration: none;
   font-weight: 400;
   font-size: 14px;
-  color: var(--primary);
+  color: var(--link-content);
   display: inline-block;
 }
 
@@ -524,24 +533,6 @@ pre {
   color: white;
 }
 
-.ais-Hits-list {
-  padding: 0;
-  list-style: none;
-  word-break: break-all;
-}
-
-.ais-Hits-item {
-  border-bottom: 1px solid var(--gray);
-}
-
-.ais-Hits-item:last-child {
-  border-bottom: none;
-}
-
-.ais-Hits-item:hover {
-  cursor: pointer;
-}
-
 .grid-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -701,7 +692,7 @@ pre {
   text-decoration: none;
   font-weight: 400;
   font-size: 14px;
-  color: var(--primary);
+  color: var(--link-content);
   display: inline-block;
 }
 
@@ -846,6 +837,9 @@ pre {
     outline: none;
   }
   .navbar .search-bar input::-webkit-input-placeholder {
+    color: white;
+  }
+  .navbar .search-bar input::-moz-placeholder {
     color: white;
   }
   .navbar .search-bar input:-ms-input-placeholder {
